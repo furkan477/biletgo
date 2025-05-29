@@ -26,7 +26,7 @@ class FlightTicketController extends Controller
                 'YCD' => $data['passengers']['YCD'],
             ],
         ];
-        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://staging.sorgulamax.com/api/flight-ticket/get-flights",$info);
+        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://sorgulamax.com/get-flights",$info);
         $data = json_decode($response->getBody(), true);
 
         return view('site.pages.flightstickets',compact('data'));
@@ -40,7 +40,7 @@ class FlightTicketController extends Controller
             "id" => $req['id'],
         ];
 
-        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://staging.sorgulamax.com/api/flight-ticket/select-flight", $info);
+        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://sorgulamax.com/select-flight", $info);
         $data = json_decode($response->getBody(), true);
         
         return view('site.pages.flightdetail',compact('data'));
