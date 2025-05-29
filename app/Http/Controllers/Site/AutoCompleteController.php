@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AutoCompleteController extends Controller
 {
     public function flightTicket(Request $request){
-        $data = Http::get('https://biletbayisi.com/api/flight-ticket/autocomplete?term='.$request->term);
+        $data = Http::get('https://biletbayisi.com/autocomplete?term='.$request->term);
         return $data->json();
     }
 }
