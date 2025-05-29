@@ -30,7 +30,7 @@ class PaymentController extends Controller
             "id" => $request->data_id,
         ];
 
-        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://staging.sorgulamax.com/api/flight-ticket/select-flight", $dt);
+        $response = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://sorgulamax.com/select-flight", $dt);
         $ticket = json_decode($response->getBody(), true);
 
         $total_price = 0;
@@ -199,7 +199,7 @@ class PaymentController extends Controller
             ];
         }
 
-        $responsee = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://staging.sorgulamax.com/api/flight-ticket/reservation", $reservationAndPay);
+        $responsee = Http::accept('application/json')->withUserAgent('Test/Test')->post("https://sorgulamax.com/reservation", $reservationAndPay);
         $dataa = json_decode($responsee->getBody(), true);
         
         TicketOrder::create([
